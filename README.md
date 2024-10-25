@@ -62,7 +62,6 @@ Exemplo de objeto retornado no get_current_user()
       "name": "ze do coco"
     } 
    ]
-
 }
 ```
 
