@@ -46,8 +46,18 @@ def hello():
     return {'message': 'Hello, %s!' % current_user.get('sub')}
 ```
 
-Neste exemplo, a rota `/create` exige que o usuário tenha o papel `admin`. Apenas usuários com o papel `admin` ou `root` terão acesso a esta rota. Se o papel do usuário for `user`, ele não poderá acessar a rota, exceto se houver permissões especiais.
+Exemplo de objeto retornado no get_current_user()
 
+```json
+{
+   "sub":"fabio@20dash.com",
+   "org_id":3,
+   "user_id":3,
+   "project_slug":"20deck",
+   "role":"admin",
+   "exp":1732473908
+}
+```
 
 ## Estrutura do Token JWT
 
