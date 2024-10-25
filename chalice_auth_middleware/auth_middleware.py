@@ -34,8 +34,8 @@ def require_role(role):
             user_role = payload.get('role')
 
             from app import app
-            if app.app_name != payload.get('project_slug'):
-                raise UnauthorizedError(f'App name is not the same from token')
+            # if app.app_name != payload.get('project_slug'):
+            #     raise UnauthorizedError(f'App name is not the same from token')
 
             if user_role == role or user_role == 'root' or (role == 'user' and user_role == 'admin'):
                 return func(*args, **kwargs)

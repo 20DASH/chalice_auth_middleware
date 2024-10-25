@@ -55,7 +55,14 @@ Exemplo de objeto retornado no get_current_user()
    "user_id":3,
    "project_slug":"20deck",
    "role":"admin",
-   "exp":1732473908
+   "exp":1732473908,
+   "user_organizations": [
+      {
+      "id": 1,
+      "name": "ze do coco"
+    } 
+   ]
+
 }
 ```
 
