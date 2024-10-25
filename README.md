@@ -34,25 +34,20 @@ Após instalar o middleware, você pode usá-lo para proteger suas rotas. Para i
 
 ```python
 from chalice import Chalice, Response
-from chalice_auth_middleware import require_role
+from chalice_auth_middleware import require_role, get_current_user
 
 app = Chalice(app_name='my-app')
 
-@app.route('/create', methods=['POST'], cors=True)
+@app.route('/hello', methods=['POST'])
 @require_role('admin')
-def create():
-    print("Voce tem permissao de admin")
+def hello():
+    current_user = get_current_user()
+
+    return {'message': 'Hello, %s!' % current_user.get('sub')}
 ```
 
 Neste exemplo, a rota `/create` exige que o usuário tenha o papel `admin`. Apenas usuários com o papel `admin` ou `root` terão acesso a esta rota. Se o papel do usuário for `user`, ele não poderá acessar a rota, exceto se houver permissões especiais.
 
-### 3. Definir a chave secreta do JWT
-
-Você deve definir a variável de ambiente `JWT_SECRET_KEY` com a chave secreta usada para decodificar os tokens JWT:
-
-```bash
-export JWT_SECRET_KEY="sua_chave_secreta_aqui"
-```
 
 ## Estrutura do Token JWT
 
