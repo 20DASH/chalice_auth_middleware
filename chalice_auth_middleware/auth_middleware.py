@@ -40,7 +40,7 @@ def require_role(role):
             if user_role == role or user_role == 'root' or (role == 'user' and user_role == 'admin'):
                 return func(*args, **kwargs)
 
-            raise UnauthorizedError(f'Access denied. Admins only. You are logged in as {user_role}')
+            raise UnauthorizedError(f'Access denied: {role} only. You are logged in as {user_role}')
 
         return decorated_function
 
